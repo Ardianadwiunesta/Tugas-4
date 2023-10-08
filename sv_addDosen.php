@@ -9,6 +9,18 @@ $insertNpp = $npp.$dataNpp;
 $namadosen = $_POST["namadosen"];
 $homebase = $_POST["homebase"];
 
+$q = "SELECT * FROM dosen WHERE npp='".$insertNpp."'";
+$rs = mysqli_query($koneksi,$q);
+if(mysqli_num_rows($rs) == 0)
+{
 mysqli_query($koneksi, "INSERT INTO dosen VALUES ('$insertNpp', '$namadosen', '$homebase')");
 header("location:addDosen.php");
+}
+else
+{
+    echo "<script>
+        alert('NPP yang diinputkan sudah ada')
+        javascript:history.go(-1)
+        </script>";
+}
 ?>

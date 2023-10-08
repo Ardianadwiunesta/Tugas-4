@@ -13,8 +13,10 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
+<h2 class="text-center">Daftar Dosen</h2>
     <div class="utama">
         <a href="addDosen.php" class="btn btn-primary">Tambah Dosen</a>
+        <br><br>
     <?php
         require "fungsi.php";
         require "head.html";
@@ -48,7 +50,9 @@
                     <td><?php echo $result->npp?></td>
                     <td><?php echo $result->namadosen?></td>
                     <td><?php echo $result->homebase?></td>
-                    <td>Edit | Delete
+                    <td>
+                    <a class="btn btn-primary btn-sm" href="editDosen.php?id=<?php echo encryptid($result->npp)?>">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="hpsDosen.php?id=<?php echo encryptid ($result->npp)?>"onclick="return confirm ('Yakin dihapus nih?')">Hapus</a></td>
 
                     </td>
                 </tr>
